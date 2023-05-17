@@ -13,7 +13,7 @@ jobs:
         with:
           java-version: 11
       - name: build
-        run: mvn clean verify --file app/pom.xml
+        run: mvn clean verify --file ../app/pom.xml
       - name: Review artifacts
         run: ls app
       - name: Upload war
