@@ -465,7 +465,6 @@ public class BlabController {
 			blabberQuery.setString(1, username);
 			blabberQuery.setString(2, username);
 			//ResultSet blabbersResults = blabberQuery.executeQuery();
-			ResultSet blabbersResults = null();
 			/* END EXAMPLE VULNERABILITY */
 
 			List<Blabber> blabbers = new ArrayList<Blabber>();
