@@ -50,9 +50,9 @@ public class ToolsController {
 
 		try {
 			/* START EXAMPLE VULNERABILITY */
-			//proc = Runtime.getRuntime().exec(new String[] { "bash", "-c", "ping -c1 " + host });
+			proc = Runtime.getRuntime().exec(new String[] { "bash", "-c", "ping -c1 " + host });
 			/* END EXAMPLE VULNERABILITY */
-			proc = null;
+			//proc = null;
 			
 
 			proc.waitFor(5, TimeUnit.SECONDS);
