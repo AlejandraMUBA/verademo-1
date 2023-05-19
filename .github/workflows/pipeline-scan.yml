@@ -87,7 +87,7 @@ jobs:
   #Analisis Upload
   Upload-and-Scan:
     needs: Build
-    runs-on: ubuntu_latest
+    runs-on: ubuntu-latest
     steps:
     - name: Download war
       uses: actions/download-artifact@v2
