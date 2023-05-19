@@ -102,7 +102,7 @@ jobs:
     - name: Upload and scan
       uses: veracode/veracode-uploadandscan-action@master 
       with: 
-        appname: 'AppDemo Alejandra'
+        appname: 'VerademoA'
         createprofile: 'false'
         filepath: 'app'
         vid: "3848a424a18113931339cf47e3b6203e"
@@ -111,4 +111,4 @@ jobs:
         scantimeout: 15
         exclude: '*.js'
         include: '*.jar'
-        criticality: 'VeryLow'
+        criticality: 'Medium'
