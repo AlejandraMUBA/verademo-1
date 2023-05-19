@@ -20,7 +20,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
          name: VeraWar
-         path: app/verademo.war
+         path: app/target/verademo.war
   pipeline-scan:
     needs: build
     runs-on: ubuntu-latest
