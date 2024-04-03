@@ -26,7 +26,7 @@ jobs:
     needs: Build
     runs-on: ubuntu-latest
     env:
-      SRCCLR_API_TOKEN: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mzc4NjUyLCJleHAiOjE2ODMyNzQwMTEsImF1dGhvcml0aWVzIjoiQUdFTlQiLCJqdGkiOiJhZTVjMThjMi1iNjkyLTQ0ZjQtOTk5NS1jNGU4YmQxZjAyODgiLCJjbGllbnRfaWQiOiIiLCJzY29wZSI6W119.tnH5x-TaYtvwZOv9OyjIFzJgUo0NvLLmdxElGSLqbf6-QKyN8z7ww3BesfWuWBCLtfv7Hpxz112ZNC5uPZD8OwMNEnCjV_nB5mPUGGihTEQs-0YpCHqSWNlyZSE91zdz2Hgo0__8WbbtYvSZ1o_DxqFdkUccbJ2iqYY_phX6OpA"
+      SRCCLR_API_TOKEN: "${{secrets.SRCCLR_API_TOKEN}}"
     steps:
       - name: Download war
         uses: actions/download-artifact@v2
@@ -49,20 +49,20 @@ jobs:
         
 # DESCARGAR POLITICA
       #- name: Download policy
-      #  run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "57658385c1439498d40f92449e1cca38" --veracode_api_key "e083fb2b462594557a70379b0966ff2cb445f0f5ec1f28afc704fe9bbf2fd447845914483fa2f18cc119f2c75a9ffe77d9f0a5120ac897970489d568ac0f8323" --request_policy "AppSec-A"
+      #  run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --request_policy "AppSec-A"
 
       - name: Review artifacts
         run: ls -a
       - name: Run Pipeline Scanner
       
 #SIN POLITICA
-       #run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "57658385c1439498d40f92449e1cca38" --veracode_api_key "e083fb2b462594557a70379b0966ff2cb445f0f5ec1f28afc704fe9bbf2fd447845914483fa2f18cc119f2c75a9ffe77d9f0a5120ac897970489d568ac0f8323" --file "verademo.war" --fail_on_severity="Very High, High" --fail_on_cwe="95"
+       #run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "verademo.war" --fail_on_severity="Very High, High" --fail_on_cwe="95"
   
 #CON POLITICA     
-       #run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "57658385c1439498d40f92449e1cca38" --veracode_api_key "e083fb2b462594557a70379b0966ff2cb445f0f5ec1f28afc704fe9bbf2fd447845914483fa2f18cc119f2c75a9ffe77d9f0a5120ac897970489d568ac0f8323" --file "verademo.war" --policy_file "AppSec-A.json"
+       #run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "verademo.war" --policy_file "AppSec-A.json"
 
 #SIN VULNERABILIDADES
-        run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "57658385c1439498d40f92449e1cca38" --veracode_api_key "e083fb2b462594557a70379b0966ff2cb445f0f5ec1f28afc704fe9bbf2fd447845914483fa2f18cc119f2c75a9ffe77d9f0a5120ac897970489d568ac0f8323" --file "verademo.war" --fail_on_severity="Very Low"
+        run: java -Dpipeline.debug=true -jar pipeline-scan.jar --veracode_api_id "${{secrets.VERACODE_API_ID}}" --veracode_api_key "${{secrets.VERACODE_API_KEY}}" --file "verademo.war" --fail_on_severity="Very Low"
 
 
 #Analisis SCA 
@@ -70,7 +70,7 @@ jobs:
     needs: Build
     runs-on: ubuntu-latest
     env:
-      SRCCLR_API_TOKEN: "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Mzc4NjUyLCJleHAiOjE2ODMyNzQwMTEsImF1dGhvcml0aWVzIjoiQUdFTlQiLCJqdGkiOiJhZTVjMThjMi1iNjkyLTQ0ZjQtOTk5NS1jNGU4YmQxZjAyODgiLCJjbGllbnRfaWQiOiIiLCJzY29wZSI6W119.tnH5x-TaYtvwZOv9OyjIFzJgUo0NvLLmdxElGSLqbf6-QKyN8z7ww3BesfWuWBCLtfv7Hpxz112ZNC5uPZD8OwMNEnCjV_nB5mPUGGihTEQs-0YpCHqSWNlyZSE91zdz2Hgo0__8WbbtYvSZ1o_DxqFdkUccbJ2iqYY_phX6OpA"
+      SRCCLR_API_TOKEN: "${{secrets.SRCCLR_API_TOKEN}}"
     steps:
     - name: Download war
       uses: actions/download-artifact@v2
@@ -109,8 +109,8 @@ jobs:
         appname: 'AlejandraMUBA/verademo-1'
         createprofile: 'false'
         filepath: 'app'
-        vid: "57658385c1439498d40f92449e1cca38"
-        vkey: "e083fb2b462594557a70379b0966ff2cb445f0f5ec1f28afc704fe9bbf2fd447845914483fa2f18cc119f2c75a9ffe77d9f0a5120ac897970489d568ac0f8323"
+        vid: "${{secrets.VERACODE_API_ID}}"
+        vkey: "${{secrets.VERACODE_API_KEY}}"
         scantimeout: 15
         exclude: '*.js'
         include: '*.war'
