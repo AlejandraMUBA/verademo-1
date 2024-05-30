@@ -92,6 +92,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Veracode Action Step DAST
+      id: veracode
       uses: veracode/veracode-dast-essentials-action@v1.0.1
       with:
         VERACODE_WEBHOOK: '${{ secrets.VERACODE_WEBHOOK }}'
