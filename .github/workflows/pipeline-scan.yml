@@ -140,6 +140,7 @@ jobs:
        
   # Container Security 
   Veracode-container_iac_secrets-scan:
+    needs: Build
     runs-on: ubuntu-latest
     name: Veracode Container/IaC/Secrets scan
 
