@@ -145,6 +145,10 @@ jobs:
       with:
        report_paths: 'report.xml'
        github_token: ${{ secrets.GITHUB_TOKEN }}
+
+env:
+  using: 'node14'
+  main: 'index.js'
        
   # Container Security 
 #  Veracode-container_iac_secrets-scan:
