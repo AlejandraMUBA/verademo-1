@@ -126,9 +126,12 @@ jobs:
 
 
   #Analisis DAST ESSENTIALS
-  Dast-essentials:
+  Dast-essentials: 
 #    needs: Build
     runs-on: ubuntu-latest
+    env:
+      using: 'node20'
+      main: 'index.js'
     steps:
     - name: Veracode Action Step DAST
       id: Veracode
