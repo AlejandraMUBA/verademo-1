@@ -79,7 +79,7 @@ jobs:
       SRCCLR_API_TOKEN: "${{secrets.SRCCLR_API_TOKEN}}"
     steps:
     - name: Download war
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with: 
         name: VeraWar
     - name: Set up JDK 1.8
@@ -100,7 +100,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Download war
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: VeraWar
     - name: Set up JDK 1.8
